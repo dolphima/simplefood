@@ -1,0 +1,29 @@
+$default: #31352b;
+$accent: #ff6838;
+$accent-light: #ff7a50;
+$title: #363853;
+$bullet: #ececec;
+$bg: #f9faff;
+$border: #c2c2c2;
+$hover: #ffffff;
+
+%rubik-400 {
+  font-family: 'Rubik-Regular', sans-serif;
+  font-weight: 400;
+}
+
+%rubik-500 {
+  font-family: 'Rubik-Medium', sans-serif;
+  font-weight: 500;
+}
+
+%rubik-600 {
+  font-family: 'Rubik-Bold', sans-serif;
+  font-weight: 600;
+}
+
+%bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

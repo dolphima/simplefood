@@ -1,0 +1,109 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg;
+  color: $default;
+  @extend %rubik-400;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1200px;
+}
+
+.section {
+  margin-bottom: 120px;
+}
+
+.logo {
+  display: block;
+  transition: box-shadow, opacity 0.3s;
+
+  &:focus {
+    border-radius: 5px;
+    padding-top: 3px;
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.link-animation {
+  transition: box-shadow, color, text-shadow 0.3s;
+  &:focus {
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    color: $accent;
+  }
+
+  &:hover {
+    color: $accent;
+  }
+
+  &:active {
+    text-shadow: 2px 2px 5px rgba($default, 0.5);
+    color: $accent;
+  }
+}
+
+.btn-animation {
+  transition: background-color, box-shadow, color 0.3s;
+  &:focus {
+    background-color: rgba($accent-light, 0.1);
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    color: $accent;
+  }
+
+  &:hover {
+    background: rgba($hover, 0.1);
+    box-shadow: 0 0 0 2px rgba($accent, 0.7), 0 5px 12px 0 rgba($accent, 0.2);
+    color: $accent;
+  }
+
+  &:active {
+    background-color: rgba($accent-light, 0.1);
+    color: $accent;
+  }
+}
+
+.user-animation {
+  transition: background-color, box-shadow, fill 0.3s;
+
+  &:focus {
+    background-color: rgba($accent-light, 0.1);
+    box-shadow: 0 0 0 2px rgba($accent, 0.7);
+  }
+
+  &:hover {
+    background-color: $accent;
+    path {
+      fill: $hover;
+    }
+  }
+
+  &:active {
+    background-color: #fff2ed;
+  }
+}

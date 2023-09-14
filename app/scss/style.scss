@@ -3,7 +3,314 @@
 @import 'reset';
 @import 'global';
 
+.header {
+  padding: 60px 0;
+}
 
+.menu {
+  display: flex;
+  align-items: center;
 
+  &__list {
+    margin-left: auto;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__link {
+    color: $default;
+    font-size: 18px;
+  }
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__link {
+    position: relative;
+    padding: 12px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color, box-shadow, stroke 0.3s;
+  }
+
+  &__link:hover {
+    background-color: $accent;
+    path,
+    ellipse {
+      stroke: $hover;
+    }
+
+    .user-nav__num {
+      color: $accent;
+    }
+
+    .user-nav__link--cart:after {
+      background-color: $hover;
+    }
+  }
+
+  &__link--cart:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $accent;
+    transition: background-color 0.3s;
+  }
+
+  &__num {
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+    right: 7px;
+    color: $hover;
+    @extend %rubik-400;
+    font-size: 10px;
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+}
+
+.footer {
+  color: $default;
+  @extend %rubik-400;
+
+  &__top {
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba($border, 0.2);
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  &__subscribe {
+    margin-right: 70px;
+    max-width: 200px;
+    width: 100%;
+  }
+
+  &__list {
+    margin-top: -10px;
+    column-count: 3;
+  }
+
+  &__item {
+    max-width: 187px;
+    width: 100%;
+    margin: 0 70px 13px 0;
+  }
+
+  &__link {
+    font-size: 18px;
+  }
+
+  &__bottom {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+
+.footer-contacts {
+  margin-top: -7px;
+  max-width: 260px;
+  width: 100%;
+
+  &__item:not(:last-child) {
+    position: relative;
+    padding-left: 30px;
+  }
+
+  &__item::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 5px;
+    @extend %bg;
+  }
+
+  &__item--adress::before {
+    width: 15px;
+    height: 18px;
+    background-image: url('../images/icons/location-icon.svg');
+  }
+
+  &__item--tell::before {
+    width: 19px;
+    height: 19px;
+    background-image: url('../images/icons/calling-icon.svg');
+  }
+
+  &__item--email::before {
+    width: 20px;
+    height: 18px;
+    background-image: url('../images/icons/message-icon.svg');
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+
+.form-subscribe {
+  font-size: 14px;
+  line-height: 1.3;
+
+  &__input {
+    margin-bottom: 12px;
+    padding: 13px 15px;
+    border: 1px solid $border;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid rgba(194, 194, 194, 0);
+      box-shadow: 0 0 0 2px $accent;
+    }
+
+    &:hover::placeholder {
+      color: $title;
+    }
+  }
+
+  &__input::placeholder {
+    color: $border;
+  }
+
+  &__btn {
+    padding: 13px 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    background-color: $accent;
+    color: $hover;
+    @extend %rubik-500;
+
+    path {
+      transition: fill 0.3s;
+    }
+  }
+
+  &__btn:focus,
+  &__btn:hover,
+  &__btn:active {
+    path {
+      fill: $accent;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 13px;
+  }
+
+  &__link {
+    border-radius: 50%;
+    width: 39px;
+    height: 39px;
+    background-color: $bullet;
+    display: block;
+    text-align: center;
+    line-height: 39px;
+  }
+}
+
+.home {
+  &__inner {
+    min-height: 660px;
+    display: flex;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    line-height: 1.3;
+  }
+
+  &__content {
+    margin: auto 0;
+    max-width: 450px;
+    width: 100%;
+  }
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__btn {
+    margin-right: 34px;
+    border-radius: 6px;
+    background-color: $accent;
+    padding: 12px 32px;
+    color: $hover;
+    font-size: 18px;
+    letter-spacing: 0.54px;
+  }
+
+  &__link {
+    position: relative;
+    color: $title;
+    line-height: 1.5;
+
+    &:after {
+      transition: border-color 0.3s;
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__link:after {
+    position: absolute;
+    content: '';
+    bottom: 3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $title;
+  }
+}
+
+.heading {
+  margin-bottom: 25px;
+  color: $title;
+  @extend %rubik-500;
+  font-size: 66px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  span {
+    color: $accent;
+  }
+}
 
 @import 'media';
