@@ -1,22 +1,24 @@
-@import 'vars';
-@import 'fonts';
 @import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'libs';
+@import 'mixins';
 @import 'global';
 
 .header {
   padding: 60px 0;
-}
 
-.menu {
-  display: flex;
-  align-items: center;
-
-  &__list {
-    margin-left: auto;
-    margin-right: 50px;
+  &__menu {
     display: flex;
     align-items: center;
   }
+}
+
+.menu {
+  margin-left: auto;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
 
   &__item:not(:last-child) {
     margin-right: 45px;
@@ -25,6 +27,10 @@
   &__link {
     color: $default;
     font-size: 18px;
+  }
+
+  &__link.menu__link--active {
+    color: $accent;
   }
 }
 
@@ -38,46 +44,24 @@
 
   &__link {
     position: relative;
-    padding: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    display: block;
-    transition: background-color, box-shadow, stroke 0.3s;
-  }
-
-  &__link:hover {
-    background-color: $accent;
-    path,
-    ellipse {
-      stroke: $hover;
-    }
-
-    .user-nav__num {
-      color: $accent;
-    }
-
-    .user-nav__link--cart:after {
-      background-color: $hover;
-    }
-  }
-
-  &__link--cart:after {
-    content: '';
-    position: absolute;
-    top: 10px;
-    right: 3px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: $accent;
-    transition: background-color 0.3s;
   }
 
   &__num {
     position: absolute;
     top: 10px;
     z-index: 2;
-    right: 7px;
+    left: 26px;
+    border-radius: 10px;
+    padding: 2px 4px;
+    background-color: $accent;
     color: $hover;
+    line-height: 1;
     @extend %rubik-400;
     font-size: 10px;
     font-weight: 400;
@@ -85,15 +69,205 @@
   }
 }
 
-.footer {
-  color: $default;
-  @extend %rubik-400;
+.hero {
+  padding-bottom: 60px;
 
-  &__top {
-    padding-bottom: 70px;
+  &__inner {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba($border, 0.2);
+    align-items: center;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    line-height: 1.3;
+  }
+
+  &__content {
+    margin: auto 0;
+    max-width: 450px;
+    width: 100%;
+  }
+
+  &__img {
+    width: 550px;
+    height: 660px;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+    color: $title;
+    @extend %rubik-500;
+    font-size: 66px;
+    text-transform: uppercase;
+
+    span {
+      color: $accent;
+    }
+  }
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__btn {
+    margin-right: 34px;
+    padding: 12px 32px;
+    font-size: 18px;
+    letter-spacing: 0.54px;
+  }
+}
+
+.pop-categories {
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__buttons {
+    margin-bottom: 45px;
+  }
+
+  &__inner {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+  }
+
+  &__link {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+  }
+}
+
+.filter-pop-products {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__btn {
+    border-radius: 5px;
+    padding: 13px 32px;
+    display: flex;
+    align-items: center;
+    background: $hover;
+    box-shadow: 0 0 0 1px $bullet;
+    color: $title;
+    line-height: 1.3;
+    transition: box-shadow 0.3s, background-color 0.3s;
+
+    svg {
+      fill: $title;
+      margin-right: 10px;
+      transition: fill 0.3s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+    }
+
+    &:hover {
+      background-color: rgba($accent-light, 0.1);
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
+    }
+
+    &:active {
+      box-shadow: 0px -5px 12px 0px rgba($accent-light, 0.2) inset;
+    }
+  }
+}
+
+.features {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__img {
+    width: 440px;
+    height: 585px;
+    @extend %bg;
+  }
+
+  &__content {
+    width: 470px;
+  }
+
+  &__title {
+    text-align: left;
+
+    span {
+      display: block;
+      max-width: 340px;
+    }
+  }
+
+  &__title,
+  &__text,
+  &__list {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 65px;
+    font-size: 24px;
+    color: $title;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      @extend %bg;
+    }
+
+    &--delivery:before {
+      background-image: url('../images/icons/stopwatch-icon.svg');
+    }
+
+    &--courier:before {
+      background-image: url('../images/icons/delivery-icon.svg');
+    }
+
+    &--restaurant:before {
+      background-image: url('../images/icons/shop-icon.svg');
+    }
+  }
+
+  &__btn {
+    padding: 12px 32px;
+    font-size: 18px;
+    letter-spacing: 0.54px;
+  }
+}
+
+.best-restaurant {
+}
+
+.footer {
+  &__top {
+    padding-bottom: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 70px;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba($border, 0.2);
   }
 
   .logo {
@@ -101,20 +275,14 @@
   }
 
   &__subscribe {
-    margin-right: 70px;
-    max-width: 200px;
-    width: 100%;
+    // max-width: 200px;
+    // width: 100%;
   }
 
   &__list {
-    margin-top: -10px;
-    column-count: 3;
-  }
-
-  &__item {
-    max-width: 187px;
-    width: 100%;
-    margin: 0 70px 13px 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 70px;
   }
 
   &__link {
@@ -130,48 +298,39 @@
 }
 
 .footer-contacts {
-  margin-top: -7px;
-  max-width: 260px;
-  width: 100%;
-
-  &__item:not(:last-child) {
+  &__item {
     position: relative;
-    padding-left: 30px;
-  }
-
-  &__item::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 5px;
-    @extend %bg;
-  }
-
-  &__item--adress::before {
-    width: 15px;
-    height: 18px;
-    background-image: url('../images/icons/location-icon.svg');
-  }
-
-  &__item--tell::before {
-    width: 19px;
-    height: 19px;
-    background-image: url('../images/icons/calling-icon.svg');
-  }
-
-  &__item--email::before {
-    width: 20px;
-    height: 18px;
-    background-image: url('../images/icons/message-icon.svg');
-  }
-
-  &__item:not(:last-child) {
     margin-bottom: 15px;
-  }
-
-  &__link {
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
     font-size: 16px;
     line-height: 2;
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      @extend %bg;
+    }
+
+    &--adress::before {
+      width: 15px;
+      height: 18px;
+      background-image: url('../images/icons/location-icon.svg');
+    }
+
+    &--tell::before {
+      width: 19px;
+      height: 19px;
+      background-image: url('../images/icons/calling-icon.svg');
+    }
+
+    &--email::before {
+      width: 20px;
+      height: 18px;
+      background-image: url('../images/icons/message-icon.svg');
+    }
   }
 }
 
@@ -192,13 +351,14 @@
       box-shadow: 0 0 0 2px $accent;
     }
 
+    &::placeholder {
+      transition: color 0.3s;
+      color: $border;
+    }
+
     &:hover::placeholder {
       color: $title;
     }
-  }
-
-  &__input::placeholder {
-    color: $border;
   }
 
   &__btn {
@@ -207,26 +367,11 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border-radius: 5px;
-    background-color: $accent;
-    color: $hover;
     @extend %rubik-500;
-
-    path {
-      transition: fill 0.3s;
-    }
-  }
-
-  &__btn:focus,
-  &__btn:hover,
-  &__btn:active {
-    path {
-      fill: $accent;
-    }
   }
 }
 
-.socials {
+.socials-contacts {
   display: flex;
 
   &__item:not(:last-child) {
@@ -238,79 +383,27 @@
     width: 39px;
     height: 39px;
     background-color: $bullet;
-    display: block;
-    text-align: center;
-    line-height: 39px;
-  }
-}
-
-.home {
-  &__inner {
-    min-height: 660px;
     display: flex;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    line-height: 1.3;
-  }
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-  &__content {
-    margin: auto 0;
-    max-width: 450px;
-    width: 100%;
-  }
+    path {
+      stroke: none;
+      fill: $default;
+      transition: fill 0.3s;
+    }
 
-  &__text {
-    margin-bottom: 25px;
-  }
+    &:hover {
+      path {
+        fill: $hover;
+      }
+    }
 
-  &__btn {
-    margin-right: 34px;
-    border-radius: 6px;
-    background-color: $accent;
-    padding: 12px 32px;
-    color: $hover;
-    font-size: 18px;
-    letter-spacing: 0.54px;
-  }
-
-  &__link {
-    position: relative;
-    color: $title;
-    line-height: 1.5;
-
-    &:after {
-      transition: border-color 0.3s;
-      &:focus,
-      &:hover,
-      &:active {
-        border-color: transparent;
+    &:active {
+      path {
+        fill: $accent;
       }
     }
   }
-
-  &__link:after {
-    position: absolute;
-    content: '';
-    bottom: 3px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $title;
-  }
 }
-
-.heading {
-  margin-bottom: 25px;
-  color: $title;
-  @extend %rubik-500;
-  font-size: 66px;
-  font-weight: 500;
-  text-transform: uppercase;
-
-  span {
-    color: $accent;
-  }
-}
-
-@import 'media';

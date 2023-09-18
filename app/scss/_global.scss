@@ -28,16 +28,15 @@ body {
 }
 
 .section {
-  margin-bottom: 120px;
+  padding: 60px 0;
 }
 
 .logo {
-  display: block;
-  transition: box-shadow, opacity 0.3s;
+  border-radius: 5px;
+  display: inline-block;
+  transition: box-shadow 0.3, opacity 0.3s;
 
   &:focus {
-    border-radius: 5px;
-    padding-top: 3px;
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
   }
 
@@ -50,12 +49,55 @@ body {
   }
 }
 
+.btn-accent {
+  border-radius: 6px;
+  padding: 7px 16px;
+  background-color: $accent;
+  color: $hover;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.main-link {
+  position: relative;
+  display: inline-block;
+  color: $title;
+  line-height: 1.5;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $title;
+    transition: background-color 0.3s;
+  }
+
+  &:focus::after,
+  &:hover::after,
+  &:active::after {
+    background-color: transparent;
+  }
+}
+
+.title {
+  margin-bottom: 45px;
+  color: $title;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
 .link-animation {
-  transition: box-shadow, color, text-shadow 0.3s;
+  border-radius: 5px;
+  transition: box-shadow 0.3s, color 0.3s, text-shadow 0.3s;
+
   &:focus {
-    border-radius: 5px;
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
-    color: $accent;
+    // color: $accent;
   }
 
   &:hover {
@@ -64,7 +106,6 @@ body {
 
   &:active {
     text-shadow: 2px 2px 5px rgba($default, 0.5);
-    color: $accent;
   }
 }
 
@@ -89,7 +130,12 @@ body {
 }
 
 .user-animation {
-  transition: background-color, box-shadow, fill 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  svg {
+    stroke: $title;
+    transition: stroke 0.3s;
+  }
 
   &:focus {
     background-color: rgba($accent-light, 0.1);
@@ -98,12 +144,45 @@ body {
 
   &:hover {
     background-color: $accent;
-    path {
-      fill: $hover;
+
+    svg {
+      stroke: $hover;
     }
   }
 
   &:active {
     background-color: #fff2ed;
+  }
+}
+
+.product-card {
+  box-shadow: 0 0 0 1px $bullet;
+  border-radius: 5px;
+  padding: 20px 15px;
+  max-width: 210px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $hover;
+  font-size: 15px;
+  transition: box-shadow 0.3s;
+
+  &__title {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  &__price {
+    margin-bottom: 10px;
+    color: $title;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 1px $accent;
   }
 }
