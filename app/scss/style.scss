@@ -373,6 +373,36 @@
   }
 }
 
+.mobile-app {
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    margin-right: 60px;
+    max-width: 540px;
+  }
+
+  &__title {
+    text-align: left;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+
 .footer {
   &__top {
     padding-bottom: 70px;
