@@ -191,12 +191,17 @@ body {
   border-radius: 10px;
   max-width: 370px;
   width: 100%;
+  background-color: $hover;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 3px 15px 0 rgba($accent, 0.5);
+  }
 
   &__content {
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-    background-color: $hover;
     padding: 15px 20px 20px;
   }
 
@@ -234,7 +239,29 @@ body {
   }
 
   &__btn {
+    display: flex;
     border-radius: 20px;
     padding: 5px 28px;
+
+    svg {
+      fill: $hover;
+      transition: fill 0.3s, transform 0.3s;
+    }
+
+    &:focus,
+    &:active {
+      svg {
+        fill: $accent;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 2px rgba($accent, 0.7);
+
+      svg {
+        transform: translateX(20px);
+        fill: $accent;
+      }
+    }
   }
 }
