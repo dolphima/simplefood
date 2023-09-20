@@ -164,6 +164,7 @@
 
       svg {
         fill: $hover;
+        transition: fill 0.3s;
       }
     }
 
