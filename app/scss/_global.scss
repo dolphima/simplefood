@@ -132,11 +132,6 @@ body {
 .user-animation {
   transition: background-color 0.3s, box-shadow 0.3s;
 
-  svg {
-    stroke: $title;
-    transition: stroke 0.3s;
-  }
-
   &:focus {
     background-color: rgba($accent-light, 0.1);
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
@@ -144,10 +139,6 @@ body {
 
   &:hover {
     background-color: $accent;
-
-    svg {
-      stroke: $hover;
-    }
   }
 
   &:active {
@@ -161,17 +152,26 @@ body {
   padding: 20px 15px;
   max-width: 210px;
   width: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background-color: $hover;
   font-size: 15px;
   transition: box-shadow 0.3s;
 
+  &__img {
+    margin-bottom: 10px;
+    width: 140px;
+    height: 140px;
+  }
+
   &__title {
+    margin-bottom: 18px;
     text-align: center;
     font-weight: 400;
-    margin-bottom: 10px;
+    font-size: 15px;
     line-height: 1;
   }
 
