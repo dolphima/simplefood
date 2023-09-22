@@ -39,6 +39,7 @@ ul {
 img {
   max-width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 input,
@@ -66,4 +67,8 @@ button,
 input,
 textarea {
   outline: transparent;
+}
+
+address {
+  font-style: normal;
 }
