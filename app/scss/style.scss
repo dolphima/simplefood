@@ -140,6 +140,7 @@
 
   &__text {
     margin-bottom: 25px;
+    @include line-clamp(3);
   }
 
   &__btn {
@@ -254,6 +255,10 @@
     text-align: left;
   }
 
+  &__text {
+    @include line-clamp(3);
+  }
+
   &__title,
   &__text,
   &__list {
@@ -338,6 +343,7 @@
     position: relative;
     margin-bottom: 30px;
     font-style: italic;
+    @include line-clamp(6);
     &:before,
     &:after {
       position: absolute;
@@ -489,6 +495,7 @@
 
   &__text {
     margin-bottom: 30px;
+    @include line-clamp(4);
   }
 
   &__list {
