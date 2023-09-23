@@ -57,7 +57,10 @@
     border-radius: 5px;
 
     svg {
+      width: 19px;
+      height: 19px;
       stroke: $title;
+      fill: none;
       transition: stroke 0.3s;
     }
 
@@ -204,6 +207,8 @@
     }
 
     svg {
+      width: 44px;
+      height: 44px;
       fill: $title;
       margin-right: 10px;
       transition: fill 0.3s;
@@ -276,15 +281,15 @@
     }
 
     &--delivery:before {
-      background-image: url('../images/icons/stopwatch-icon.svg');
+      background-image: url('../images/stopwatch-icon.svg');
     }
 
     &--courier:before {
-      background-image: url('../images/icons/delivery-icon.svg');
+      background-image: url('../images/delivery-icon.svg');
     }
 
     &--restaurant:before {
-      background-image: url('../images/icons/shop-icon.svg');
+      background-image: url('../images/shop-icon.svg');
     }
   }
 
@@ -401,6 +406,8 @@
     }
 
     svg {
+      width: 19px;
+      height: 11px;
       fill: $border;
       transition: fill 0.3s;
     }
@@ -560,19 +567,19 @@
     &--adress::before {
       width: 15px;
       height: 18px;
-      background-image: url('../images/icons/location-icon.svg');
+      background-image: url('../images/location-icon.svg');
     }
 
     &--tell::before {
       width: 19px;
       height: 19px;
-      background-image: url('../images/icons/calling-icon.svg');
+      background-image: url('../images/calling-icon.svg');
     }
 
     &--email::before {
       width: 20px;
       height: 18px;
-      background-image: url('../images/icons/message-icon.svg');
+      background-image: url('../images/message-icon.svg');
     }
   }
 }
@@ -613,6 +620,8 @@
     @extend %rubik-500;
 
     svg {
+      width: 17px;
+      height: 16px;
       fill: $hover;
     }
 
@@ -646,6 +655,8 @@
     text-align: center;
 
     svg {
+      width: 20px;
+      height: 20px;
       stroke: none;
       fill: $default;
       transition: fill 0.3s;
