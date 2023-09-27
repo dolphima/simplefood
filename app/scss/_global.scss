@@ -6,6 +6,27 @@ body {
   @extend %rubik-400;
   font-size: 20px;
   line-height: 1.5;
+
+  @include mq('tablet-2') {
+    font-size: 18px;
+  }
+  @include mq('phone') {
+    font-size: 16px;
+  }
+}
+
+.lock {
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .sr-only {
@@ -29,12 +50,31 @@ body {
 
 .section {
   padding: 60px 0;
+
+  @include mq('desktop') {
+    padding: 50px 0;
+  }
+  @include mq('tablet-2') {
+    padding: 40px 0;
+  }
+  @include mq('tablet') {
+    padding: 30px 0;
+  }
+  @include mq('phone') {
+    padding: 20px 0;
+  }
 }
 
 .logo {
   border-radius: 5px;
   display: inline-block;
+  width: 200px;
+  height: 39px;
   transition: box-shadow 0.3, opacity 0.3s;
+
+  &__img {
+    object-fit: contain;
+  }
 
   &:focus {
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
@@ -49,7 +89,43 @@ body {
   }
 }
 
+.burger-menu {
+  position: relative;
+  display: none;
+  width: 44px;
+  height: 44px;
+  @include mq('tablet-2') {
+    display: block;
+  }
+
+  &__lines {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: $title;
+    &::before,
+    &:after {
+      position: absolute;
+      content: '';
+      right: 0;
+      width: 30px;
+      height: 2px;
+      background-color: $title;
+    }
+
+    &:after {
+      top: 10px;
+    }
+    &::before {
+      bottom: 10px;
+    }
+  }
+}
+
 .btn-accent {
+  display: inline-block;
   border-radius: 6px;
   padding: 7px 16px;
   background-color: $accent;
@@ -63,6 +139,15 @@ body {
   display: inline-block;
   color: $title;
   line-height: 1.5;
+  font-size: 20px;
+
+  @include mq('tablet-2') {
+    font-size: 18px;
+  }
+
+  @include mq('phone') {
+    font-size: 16px;
+  }
 
   &::after {
     position: absolute;
@@ -89,6 +174,22 @@ body {
   font-weight: 500;
   line-height: 1.3;
   text-align: center;
+
+  @include mq('desktop') {
+    margin-bottom: 40px;
+    font-size: 34px;
+  }
+  @include mq('tablet-2') {
+    font-size: 30px;
+  }
+  @include mq('tablet') {
+    margin-bottom: 35px;
+    font-size: 26px;
+  }
+  @include mq('phone') {
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
 }
 
 .link-animation {
@@ -153,7 +254,7 @@ body {
   padding: 20px 15px;
   max-width: 210px;
   width: 100%;
-  min-height: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -175,6 +276,10 @@ body {
     font-size: 15px;
     line-height: 1;
     @include line-clamp(2);
+
+    @include mq('tablet') {
+      margin-bottom: 10px;
+    }
   }
 
   &__price {
@@ -240,7 +345,7 @@ body {
       left: 0;
       width: 18px;
       height: 20px;
-      background-image: url('../images/icons/time-icon.svg');
+      background-image: url('../images/time-icon.svg');
       @extend %bg;
     }
   }

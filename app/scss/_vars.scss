@@ -29,3 +29,10 @@ $hover: #ffffff;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+$breakpoints: (
+  'phone': 576px,
+  'tablet': 768px,
+  'tablet-2': 992px,
+  'desktop': 1200px,
+);
